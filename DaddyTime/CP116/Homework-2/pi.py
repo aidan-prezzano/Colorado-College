@@ -9,12 +9,12 @@ TEST_NBR_TERMS = 1_000_000
 def calculate_pi_approximation(nbr_terms):
     one_fourth_pi = 0
     add_or_subtract = 'ADD'
-    for iter in range(1, (nbr_terms + 1)):
+    for idx in range(1, (nbr_terms + 1)):
         if add_or_subtract == 'ADD':
-            one_fourth_pi = one_fourth_pi + (1 / ((iter * 2) - 1))
+            one_fourth_pi = one_fourth_pi + (1 / ((idx * 2) - 1))
             add_or_subtract = 'SUBTRACT'
         else:
-            one_fourth_pi = one_fourth_pi - (1 / ((iter * 2) - 1))
+            one_fourth_pi = one_fourth_pi - (1 / ((idx * 2) - 1))
             add_or_subtract = 'ADD'
     return one_fourth_pi * 4
 
