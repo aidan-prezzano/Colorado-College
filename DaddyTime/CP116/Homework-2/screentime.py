@@ -24,8 +24,6 @@ command = input('Enter command: ')
 while command != 'exit':
     if command == 'names':
         print('Here are the valid character names (with > 5 lines): ' + names_str)
-    elif command == 'exit':
-        print('Okay, shutting down.')
     else:
         name = command
         if name in names:
@@ -35,5 +33,7 @@ while command != 'exit':
             print(name + ' is not a valid character name')
     print('')
     command = input('Enter command: ')
+
+print('Okay, shutting down.')
 
 # **************************************************************************
