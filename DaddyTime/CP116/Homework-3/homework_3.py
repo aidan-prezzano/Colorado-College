@@ -9,30 +9,43 @@ def help_menu():
     print("'nameavg': view the average score for a student (across assignments)")
     print("'quit': exit the program")
 
-    # Parameters:
-    # ... # TODO
-    # Returns:
-    # None
+
+# **************************************************************************
+
+def add_menu(name):
+    student_names = []
+    user_name = input("what is the new students name?")
+    if user_name not in student_names:
+        student_names.append(user_name)
+        print(f"Successfully added a new record for {user_name}")
+
+    else:
+        print("There is a pre-existing record for Ben")
+        print("Please use 'set' to update their record")
 
 
 # **************************************************************************
 
-
 def mainloop():
-
     user_action = input("What action would you like to take? ('help' for options): ")
 
     while user_action != "quit":
-        if user_action == "help":
-            print(help_menu())
-            user_action = input("What action would you like to take? ('help' for options): ")
+        match user_action:
+
+            case 'help':
+                help_menu()
+                print('')
+                user_action = input("What action would you like to take? ('help' for options): ")
+
+            case 'add':
+                add_menu()
+                print('')
+                user_action = input("What action would you like to take? ('help' for options): ")
 
     print("See ya later")
 
 
 # **************************************************************************
-
-
 mainloop()
 
 # **************************************************************************
