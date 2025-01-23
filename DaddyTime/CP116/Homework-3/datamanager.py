@@ -63,13 +63,13 @@ def display_student_records(records):
 
 
 student_records = []
-help()
-student_records = add_new_student_to_records(student_records, 'Charlie')
-student_records = add_new_student_to_records(student_records, 'Aidan')
-display_student_records(student_records)
+#help()
+#student_records = add_new_student_to_records(student_records, 'Charlie')
+#student_records = add_new_student_to_records(student_records, 'Aidan')
+#display_student_records(student_records)
 
-# command = input('What action would you like to take? (\'help\' for options): ')
-command = 'quit'
+command = input('What action would you like to take? (\'help\' for options): ')
+#command = 'quit'
 while command != 'quit':
     print('')
     match command:
