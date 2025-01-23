@@ -10,7 +10,7 @@ def help():
     print('        \'quit\': exit the program')
 
 
-# ************************************************************************** Add Student
+# ************************************************************************** Add a Student
 
 
 # determine if a student exist in the records
@@ -32,6 +32,13 @@ def add_student_record(records):
         print('Please use \'set\' to update their record')
     else:
         records = add_new_student_to_records(records, name)
+    return records
+
+
+# ************************************************************************** Set a Student Record
+
+
+def set_student_record(records):
     return records
 
 
@@ -72,6 +79,8 @@ while command != 'quit':
             display_student_records(student_records)
         case 'help':
             help()
+        case 'set':
+            student_records = set_student_record(student_records)
     command = input('\nWhat action would you like to take? (\'help\' for options): ')
 
 print('\nSee ya later')
