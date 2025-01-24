@@ -91,7 +91,7 @@ def display_student_records(student_records):
 # ************************************************************************** Display a Students Average
 
 
-# calculate a students average assigment score
+# calculate a students average assignment score
 def calculate_student_average(student_record):
     return (student_record.get('day0') + student_record.get('day1') + student_record.get('day2')) / 3
 
