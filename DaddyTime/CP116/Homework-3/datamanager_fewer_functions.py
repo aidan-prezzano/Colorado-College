@@ -21,6 +21,7 @@ def student_in_records(student_records, name):
             return True
     return False
 
+
 # add a student to the records, as long as the student does not already exist
 def add_student_record(student_records):
     name = input('What is the new student\'s name? ')
