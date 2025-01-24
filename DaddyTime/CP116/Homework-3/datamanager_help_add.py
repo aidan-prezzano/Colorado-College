@@ -15,6 +15,9 @@ def help():
 
 
 # determine if a student exist in the records
+# iterate through all student records ...
+# if the name matches a record in the list, return true
+# if the for loop finishes without matching the name, return false
 def student_in_records(student_records, name):
     for student_record in student_records:
         if student_record.get('name') == name:
@@ -22,14 +25,17 @@ def student_in_records(student_records, name):
     return False
 
 
-# add a student to the records, as long as the student does not already exist
+# add a student to the records
+# if the student is in the list of records, state that they already exist
+# else add the student to the list of records with default assignment scores of 0
 def add_student_record(student_records):
     name = input('What is the new student\'s name? ')
     if student_in_records(student_records, name):
         print('There is a pre-existing record for ' + name)
         print('Please use \'set\' to update their record')
     else:
-        student_records.append({'name': name, 'day0': 0, 'day1': 0, 'day2': 0})
+        student_record = {'name': name, 'day0': 0, 'day1': 0, 'day2': 0}
+        student_records.append(student_record)
         print('Successfully added a new record for ' + name)
     return student_records
 
