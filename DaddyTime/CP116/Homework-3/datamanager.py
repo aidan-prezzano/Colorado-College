@@ -47,7 +47,7 @@ def add_student_record(student_records):
 def update_student_record(student_records, name, assignment_name, assignment_score):
     for idx, student_record in enumerate(student_records):
         if student_record.get('name') == name:
-            student_record.update({assignment_name : float(assignment_score)})
+            student_record.update({assignment_name: float(assignment_score)})
             student_records[idx] = student_record
     return student_records
 
