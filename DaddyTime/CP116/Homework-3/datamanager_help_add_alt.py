@@ -21,10 +21,10 @@ def help():
 def add_student_record(student_records, name):
     for student_record in student_records:
         if student_record.get('name') == name:
-            return {'success': False}
+            return False
     new_student_record = {'name': name, 'day0': 0, 'day1': 0, 'day2': 0}
     student_records.append(new_student_record)
-    return {'success': True, 'student_records': student_records}
+    return True
 
 
 # **************************************************************************
@@ -39,9 +39,7 @@ def run_data_manager():
         match command:
             case 'add':
                 name = input('What is the new student\'s name? ')
-                response = add_student_record(student_records, name)
-                if response.get('success'):
-                    student_records = response.get('student_records')
+                if add_student_record(student_records, name):
                     print('Successfully added a new record for ' + name)
                 else:
                     print('There is a pre-existing record for ' + name)
