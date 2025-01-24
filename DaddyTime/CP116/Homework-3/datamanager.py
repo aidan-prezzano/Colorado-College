@@ -134,6 +134,7 @@ def display_day_average(student_records):
 
 # **************************************************************************
 
+
 def run_data_manager():
 
     student_records = []
