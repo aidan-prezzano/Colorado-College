@@ -56,14 +56,12 @@ class Atbash(Cipher):
         # TODO: Implement encoding method for Atbash Cipher
         # Loop through teststrings letter by letter
         # new letter = the index at which it is at -25, set letter to new letter
-        for letter in range(len(cleartext):
+        ciphertext = ""
+        for letter in cleartext.lower():
             if letter in ALPHABET:
-
-                new_letter = 25 -
+                new_letter = 25 - (ALPHABET.index(letter))
                 print(new_letter)
 
-
-        ciphertext = ""
         return ciphertext
 
     def decode(self, ciphertext):
