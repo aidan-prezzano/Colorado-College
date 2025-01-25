@@ -53,23 +53,26 @@ class Atbash(Cipher):
         self.name = "Atbash"
 
     def encode(self, cleartext):
-        # TODO: Implement encoding method for Atbash Cipher
-        # Loop through teststrings letter by letter
-        # new letter = the index at which it is at -25, set letter to new letter
+        # iterate through each character in the clear text string
+        # if char in ALPHABET
+            # new letter = 25 - the index that it is at in ALPHABET, set letter to new letter
+        # print and add the converted character to the ciphertext
+        # else add the original character in ciphertext such as a space
         ciphertext = ""
-        for letter in cleartext.lower():
-            if letter in ALPHABET:
-                new_letter = 25 - (ALPHABET.index(letter))
-                final_letter = ALPHABET[new_letter]
-                print(final_letter)
-                ciphertext += final_letter
+        for char in cleartext.lower():
+            if char in ALPHABET:
+                new_char = 25 - (ALPHABET.index(char))
+                final_char = ALPHABET[new_char]
+                print(final_char)
+                ciphertext += final_char
+            else:
+                ciphertext += char
 
         return ciphertext
-
+    # Run encode because it basically puts the alphabet in reverse: allows you to run it again to decode
     def decode(self, ciphertext):
-        # TODO: Implement decoding method for Atbash Cipher
         cleartext = ""
-        return cleartext
+        return  self.encode(ciphertext)
 
 
 class Caesar(Cipher):
@@ -79,8 +82,13 @@ class Caesar(Cipher):
         self.name = f"Caesar-{n}"
         self.shift = n
 
+    # pick an integer 1-25
+    # shirt the letter by that integer to the right
+    # if the index becomes greater than 25 have it start back down at 0
     def encode(self, cleartext):
         # TODO: Implement encoding method for Caesar Cipher
+        chosen_integer =  self.shift
+
         ciphertext = ""
         return ciphertext
 
@@ -118,7 +126,7 @@ ciphers = [
 ]
 
 ciphers = [
-    Atbash()
+    Caesar(3)
 ]
 
 print("This program implements several different ciphers that can be used to encode/decode text.")
