@@ -1,6 +1,6 @@
 # Provided for your use, should you so desire
 ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
-
+ALPHABET_REVERSED = ALPHABET[::-1]
 
 # The base class doesn't do any useful encoding or decoding, it exists mostly to provide a
 # centralized run_test to every cipher subclass you implement
@@ -50,16 +50,26 @@ class Atbash(Cipher):
     def __init__(self):
         self.name = "Atbash"
 
+    # iterate through each character in the clear text string
+    # if the character is in the alphabet ...
+    #   - find its position within the alphabet (ex: 'b' is in the 1st position)
+    #   - find the character at this position in the alphabet reversed  (ex: 1st position in reversed alphabet is 'y')
+    #   - add this character to the cipher text
+    # else, add this non-alphabet character to the cipher text
     def encode(self, cleartext):
-        # TODO: Implement encoding method for Atbash Cipher
         ciphertext = ""
+        for char in cleartext.lower():
+            if char in ALPHABET:
+                char_idx_in_alphabet = ALPHABET.index(char)
+                char_at_idx_in_reversed_alphabet = ALPHABET_REVERSED[char_idx_in_alphabet]
+                ciphertext += char_at_idx_in_reversed_alphabet
+            else:
+                ciphertext += char
         return ciphertext
 
+    # as the logic to decode is the same to encode - call the encode function with the cipher text
     def decode(self, ciphertext):
-        # TODO: Implement decoding method for Atbash Cipher
-        cleartext = ""
-        return cleartext
-
+        return self.encode(ciphertext)
 
 class Caesar(Cipher):
     def __init__(self, n):
