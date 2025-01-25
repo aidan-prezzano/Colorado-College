@@ -60,7 +60,8 @@ class Atbash(Cipher):
         for letter in cleartext.lower():
             if letter in ALPHABET:
                 new_letter = 25 - (ALPHABET.index(letter))
-                print(new_letter)
+                final_letter = ALPHABET[new_letter]
+                print(final_letter)
 
         return ciphertext
 
