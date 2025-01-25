@@ -1,4 +1,6 @@
 # Provided for your use, should you so desire
+from operator import index
+
 ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
 
 
@@ -52,6 +54,15 @@ class Atbash(Cipher):
 
     def encode(self, cleartext):
         # TODO: Implement encoding method for Atbash Cipher
+        # Loop through teststrings letter by letter
+        # new letter = the index at which it is at -25, set letter to new letter
+        for letter in range(len(cleartext):
+            if letter in ALPHABET:
+
+                new_letter = 25 -
+                print(new_letter)
+
+
         ciphertext = ""
         return ciphertext
 
@@ -105,6 +116,11 @@ ciphers = [
     Weave(2),
     Weave(3)
 ]
+
+ciphers = [
+    Atbash()
+]
+
 print("This program implements several different ciphers that can be used to encode/decode text.")
 print("Here is a sampling of ciphers to showcase the options.")
 
