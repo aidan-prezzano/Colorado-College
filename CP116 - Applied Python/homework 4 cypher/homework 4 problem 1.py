@@ -62,6 +62,7 @@ class Atbash(Cipher):
                 new_letter = 25 - (ALPHABET.index(letter))
                 final_letter = ALPHABET[new_letter]
                 print(final_letter)
+                ciphertext += final_letter
 
         return ciphertext
 
