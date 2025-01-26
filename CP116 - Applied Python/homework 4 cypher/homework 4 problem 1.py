@@ -159,11 +159,13 @@ class Weave(Cipher):
         #new_list_of_sliced_texts = list_of_sliced_texts.split(',')
         while counter < spliced_text_size:
             for spliced_txt in sliced_texts:
-                line = []
-                add_weaved_txt = (spliced_txt[counter])
-                line.append(add_weaved_txt)
-                print(add_weaved_txt)
-                counter += 1
+                if counter < len(spliced_txt):
+                    ciphertext += spliced_txt[counter]
+                else:
+                    ciphertext += '@'
+                weaved_txt = (spliced_txt[counter])
+                #print(weaved_txt)
+            counter += 1
 
 
         first_portion = sliced_texts[:len(sliced_texts) // self.size]
