@@ -88,19 +88,17 @@ class Caesar(Cipher):
     def encode(self, cleartext):
         # TODO: Implement encoding method for Caesar Cipher
         ciphertext = ""
-        chosen_integer = self.shift
         for char in cleartext.lower():
             if char in ALPHABET:
-                new_char = chosen_integer + ALPHABET.index(char)
-                if new_char > 25:
-                    new_char = abs(26 - new_char)
+                new_char_idx = self.shift + ALPHABET.index(char)
+                if new_char_idx > 25:
+                    new_char_idx = abs(26 - new_char_idx)
 
-                final_char = ALPHABET[new_char]
+                final_char = ALPHABET[new_char_idx]
                 ciphertext += final_char
             else:
                 ciphertext += char
 
-        'wklv rqh kdv sxqfwxdwlrq!!! jrrg oxfn :)'
 
         return ciphertext
 
