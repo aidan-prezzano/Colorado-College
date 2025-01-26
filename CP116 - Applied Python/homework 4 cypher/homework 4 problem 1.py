@@ -1,5 +1,4 @@
-from textwrap import wrap
-
+import math
 # Provided for your use, should you so desire
 from operator import index
 
@@ -140,11 +139,29 @@ class Weave(Cipher):
     def encode(self, cleartext):
         # TODO: Implement encoding method for Weave Cipher
         ciphertext = ""
-        for char in cleartext.lower():
-            if char in ALPHABET:
-                split_ciphertext = wrap(ciphertext, self.size)
-                ciphertext += str(split_ciphertext)
-                print(split_ciphertext)
+        # find the character size of each splice (rounding up)
+        # as ex: if cleartext length = 48, while # splices = 3 ...  splice size = 16 (16x3=48)
+        # as ex: if cleartext length = 40, while # splices = 3 ...  splice size = 14 (14x3=42)
+
+        spliced_text = math.ceil(len(cleartext) / self.size)
+        print(spliced_text)
+
+        # Make empty list
+        list_of_sliced_texts = []
+
+        list_of_sliced_texts = [
+            cleartext[i * spliced_text:(i + 1) * spliced_text]
+            for i in range(self.size)
+        ]
+        print(list_of_sliced_texts)
+
+        #new_list_of_sliced_texts = list_of_sliced_texts.split(',')
+
+        first_portion = list_of_sliced_texts[:len(list_of_sliced_texts) // self.size]
+        print(first_portion)
+
+        second_portion = list_of_sliced_texts[spliced_text :spliced_text *2]
+        print(second_portion)
 
 
 
@@ -166,7 +183,7 @@ ciphers = [
 ]
 
 ciphers = [
-    Weave(2)
+    Weave(3)
 ]
 
 print("This program implements several different ciphers that can be used to encode/decode text.")
