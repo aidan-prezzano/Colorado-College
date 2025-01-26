@@ -105,11 +105,11 @@ class Caesar(Cipher):
     def decode(self, ciphertext):
         # TODO: Implement decoding method for Caesar Cipher
         cleartext = ""
-        for char in cleartext.lower():
+        for char in ciphertext.lower():
             if char in ALPHABET:
                 new_char_idx = ALPHABET.index(char) - self.shift
                 if new_char_idx < 0:
-                    new_char_idx = (26 - new_char_idx)
+                    new_char_idx = (new_char_idx + 26)
 
             final_char = ALPHABET[new_char_idx]
             ciphertext += final_char
