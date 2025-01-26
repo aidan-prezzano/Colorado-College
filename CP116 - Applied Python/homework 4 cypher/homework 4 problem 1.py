@@ -92,7 +92,7 @@ class Caesar(Cipher):
             if char in ALPHABET:
                 new_char_idx = self.shift + ALPHABET.index(char)
                 if new_char_idx > 25:
-                    new_char_idx = abs(26 - new_char_idx)
+                    new_char_idx = (new_char_idx - 26)
 
                 final_char = ALPHABET[new_char_idx]
                 ciphertext += final_char
@@ -105,6 +105,19 @@ class Caesar(Cipher):
     def decode(self, ciphertext):
         # TODO: Implement decoding method for Caesar Cipher
         cleartext = ""
+        for char in cleartext.lower():
+            if char in ALPHABET:
+                new_char_idx = ALPHABET.index(char) - self.shift
+                if new_char_idx < 0:
+                    new_char_idx = (26 - new_char_idx)
+
+            final_char = ALPHABET[new_char_idx]
+            ciphertext += final_char
+        else:
+            ciphertext += char
+
+
+
         return cleartext
 
 
@@ -136,7 +149,7 @@ ciphers = [
 ]
 
 ciphers = [
-    Caesar(13)
+    Caesar(3)
 ]
 
 print("This program implements several different ciphers that can be used to encode/decode text.")
