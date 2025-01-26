@@ -143,24 +143,33 @@ class Weave(Cipher):
         # find the character size of each splice (rounding up)
         # as ex: if cleartext length = 48, while # splices = 3 ...  splice size = 16 (16x3=48)
         # as ex: if cleartext length = 40, while # splices = 3 ...  splice size = 14 (14x3=42)
-        spliced_text = math.ceil(len(cleartext) / self.size)
-        print(spliced_text)
+        spliced_text_size = math.ceil(len(cleartext) / self.size)
+        print(spliced_text_size)
 
         # Make empty list
         list_of_sliced_texts = []
 
-        list_of_sliced_texts = [
-            cleartext[i * spliced_text:(i + 1) * spliced_text]
+        sliced_texts = [
+            cleartext[i * spliced_text_size:(i + 1) * spliced_text_size]
             for i in range(self.size)
         ]
-        print(list_of_sliced_texts)
+        print(sliced_texts)
 
+        counter = 0
         #new_list_of_sliced_texts = list_of_sliced_texts.split(',')
+        while counter < spliced_text_size:
+            for spliced_txt in sliced_texts:
+                line = []
+                add_weaved_txt = (spliced_txt[counter])
+                line.append(add_weaved_txt)
+                print(add_weaved_txt)
+                counter += 1
 
-        first_portion = list_of_sliced_texts[:len(list_of_sliced_texts) // self.size]
+
+        first_portion = sliced_texts[:len(sliced_texts) // self.size]
         print(first_portion)
 
-        second_portion = list_of_sliced_texts[spliced_text :spliced_text *2]
+        second_portion = sliced_texts[spliced_text_size :spliced_text_size *2]
         print(second_portion)
 
 
