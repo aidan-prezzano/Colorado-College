@@ -1,8 +1,9 @@
+from textwrap import wrap
+
 # Provided for your use, should you so desire
 from operator import index
 
 ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
-
 
 # The base class doesn't do any useful encoding or decoding, it exists mostly to provide a
 # centralized run_test to every cipher subclass you implement
@@ -85,8 +86,10 @@ class Caesar(Cipher):
     #
     # shift the character by that integer to the right
     # if the index becomes greater than 25 have it start back down at 0
+    # change the char from and index to letter in alphabet
+    # add char to ciphertext
+    # if char has a space or char not in alphabet proceed as normal
     def encode(self, cleartext):
-        # TODO: Implement encoding method for Caesar Cipher
         ciphertext = ""
         for char in cleartext.lower():
             if char in ALPHABET:
@@ -99,11 +102,13 @@ class Caesar(Cipher):
             else:
                 ciphertext += char
 
-
         return ciphertext
 
+    # shift the char the other way
+    # if char becomes less than 0, add 26 to the index
+    # convert char from index to a real letter from alphabet
+    # add the char's to cleartext and proceed as normal if letter is not in alphabet
     def decode(self, ciphertext):
-        # TODO: Implement decoding method for Caesar Cipher
         cleartext = ""
         for char in ciphertext.lower():
             if char in ALPHABET:
@@ -128,9 +133,21 @@ class Weave(Cipher):
         self.name = f"{n}-Weave"
         self.size = n
 
+    # split text into self.size
+    # pick first index of one first split and then second... so on
+    #
+
     def encode(self, cleartext):
         # TODO: Implement encoding method for Weave Cipher
         ciphertext = ""
+        for char in cleartext.lower():
+            if char in ALPHABET:
+                split_ciphertext = wrap(ciphertext, self.size)
+                ciphertext += str(split_ciphertext)
+                print(split_ciphertext)
+
+
+
         return ciphertext
 
     def decode(self, ciphertext):
@@ -149,7 +166,7 @@ ciphers = [
 ]
 
 ciphers = [
-    Caesar(13)
+    Weave(2)
 ]
 
 print("This program implements several different ciphers that can be used to encode/decode text.")
