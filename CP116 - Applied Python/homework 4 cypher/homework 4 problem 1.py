@@ -161,10 +161,9 @@ class Weave(Cipher):
             for spliced_txt in sliced_texts:
                 if counter < len(spliced_txt):
                     ciphertext += spliced_txt[counter]
+
                 else:
                     ciphertext += '@'
-                weaved_txt = (spliced_txt[counter])
-                #print(weaved_txt)
             counter += 1
 
 
