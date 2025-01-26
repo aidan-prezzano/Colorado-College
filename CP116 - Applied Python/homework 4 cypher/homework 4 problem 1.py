@@ -111,10 +111,10 @@ class Caesar(Cipher):
                 if new_char_idx < 0:
                     new_char_idx = (new_char_idx + 26)
 
-            final_char = ALPHABET[new_char_idx]
-            ciphertext += final_char
-        else:
-            ciphertext += char
+                final_char = ALPHABET[new_char_idx]
+                cleartext += final_char
+            else:
+                cleartext += char
 
 
 
@@ -149,7 +149,7 @@ ciphers = [
 ]
 
 ciphers = [
-    Caesar(3)
+    Caesar(13)
 ]
 
 print("This program implements several different ciphers that can be used to encode/decode text.")
