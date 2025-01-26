@@ -52,12 +52,12 @@ class Atbash(Cipher):
     def __init__(self):
         self.name = "Atbash"
 
+    # iterate through each character in the clear text string
+    # if char in ALPHABET
+    # new letter = 25 - the index that it is at in ALPHABET, set letter to new letter
+    # print and add the converted character to the ciphertext
+    # else add the original character in ciphertext such as a space
     def encode(self, cleartext):
-        # iterate through each character in the clear text string
-        # if char in ALPHABET
-            # new letter = 25 - the index that it is at in ALPHABET, set letter to new letter
-        # print and add the converted character to the ciphertext
-        # else add the original character in ciphertext such as a space
         ciphertext = ""
         for char in cleartext.lower():
             if char in ALPHABET:
@@ -82,14 +82,26 @@ class Caesar(Cipher):
         self.name = f"Caesar-{n}"
         self.shift = n
 
-    # pick an integer 1-25
-    # shirt the letter by that integer to the right
+    #
+    # shift the character by that integer to the right
     # if the index becomes greater than 25 have it start back down at 0
     def encode(self, cleartext):
         # TODO: Implement encoding method for Caesar Cipher
-        chosen_integer =  self.shift
-
         ciphertext = ""
+        chosen_integer = self.shift
+        for char in cleartext.lower():
+            if char in ALPHABET:
+                new_char = chosen_integer + ALPHABET.index(char)
+                if new_char > 25:
+                    new_char = abs(26 - new_char)
+
+                final_char = ALPHABET[new_char]
+                ciphertext += final_char
+            else:
+                ciphertext += char
+
+        'wklv rqh kdv sxqfwxdwlrq!!! jrrg oxfn :)'
+
         return ciphertext
 
     def decode(self, ciphertext):
@@ -126,7 +138,7 @@ ciphers = [
 ]
 
 ciphers = [
-    Caesar(3)
+    Caesar(13)
 ]
 
 print("This program implements several different ciphers that can be used to encode/decode text.")
