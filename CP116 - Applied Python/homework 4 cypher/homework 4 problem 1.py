@@ -137,12 +137,12 @@ class Weave(Cipher):
     #
 
     def encode(self, cleartext):
-        # TODO: Implement encoding method for Weave Cipher
+
         ciphertext = ""
+
         # find the character size of each splice (rounding up)
         # as ex: if cleartext length = 48, while # splices = 3 ...  splice size = 16 (16x3=48)
         # as ex: if cleartext length = 40, while # splices = 3 ...  splice size = 14 (14x3=42)
-
         spliced_text = math.ceil(len(cleartext) / self.size)
         print(spliced_text)
 
