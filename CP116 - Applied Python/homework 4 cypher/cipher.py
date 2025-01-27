@@ -63,7 +63,6 @@ class Atbash(Cipher):
             if char in ALPHABET:
                 new_char = 25 - (ALPHABET.index(char))
                 final_char = ALPHABET[new_char]
-                print(final_char)
                 ciphertext += final_char
             else:
                 ciphertext += char
@@ -204,7 +203,7 @@ ciphers = [
 ]
 
 ciphers = [
-    Weave(2)
+    Caesar(3)
 ]
 
 print("This program implements several different ciphers that can be used to encode/decode text.")
