@@ -19,7 +19,9 @@ def decrpty_scheme():
 
     for idx, ciphertext in enumerate(scheme_file):
         ciphertext = ciphertext.strip()
-        print('line #' + str(idx) + ': ' + ciphertext)
+        #print('line #' + str(idx) + ': ' + ciphertext)
+        if idx == 0:
+            test_ciphers(ciphertext)
 
     scheme_file.close()
 
