@@ -173,7 +173,7 @@ class Weave(Cipher):
         # TODO: Implement decoding method for Weave Cipher
         cleartext = ""
 
-        spliced_text_size = math.ceil(len(cleartext) / self.size)
+        spliced_text_size = math.ceil(len(ciphertext) / self.size)
 
         counter = 0
         position = 0
@@ -182,16 +182,10 @@ class Weave(Cipher):
         # for text inside ciphertext
         while counter < spliced_text_size:
             for txt in ciphertext:
-                cleartext =+ ciphertext[position]
+                cleartext += ciphertext[position]
+                print(position)
                 position += 3
-                print(cleartext)
-                print(txt)
             counter += 1
-
-
-
-
-
 
         return cleartext
 
