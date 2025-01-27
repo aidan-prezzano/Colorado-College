@@ -146,14 +146,11 @@ class Weave(Cipher):
         spliced_text_size = math.ceil(len(cleartext) / self.size)
         print(spliced_text_size)
 
-        # Make empty list
-        list_of_sliced_texts = []
 
         sliced_texts = [
             cleartext[i * spliced_text_size:(i + 1) * spliced_text_size]
             for i in range(self.size)
         ]
-        print(sliced_texts)
 
         counter = 0
         #new_list_of_sliced_texts = list_of_sliced_texts.split(',')
@@ -185,7 +182,6 @@ class Weave(Cipher):
             while counter_spliced_text_size < spliced_text_size:
                 final_char = ciphertext[position]
                 cleartext += final_char
-                print(position)
                 position += self.size
                 counter_spliced_text_size += 1
 
@@ -208,7 +204,7 @@ ciphers = [
 ]
 
 ciphers = [
-    Weave(3)
+    Weave(2)
 ]
 
 print("This program implements several different ciphers that can be used to encode/decode text.")
