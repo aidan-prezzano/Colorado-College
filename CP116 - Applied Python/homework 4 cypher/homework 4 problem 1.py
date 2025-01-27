@@ -175,17 +175,23 @@ class Weave(Cipher):
 
         spliced_text_size = math.ceil(len(ciphertext) / self.size)
 
-        counter = 0
+        counter_self_size = 0
+        counter_spliced_text_size = 0
         position = 0
         # set counter = 0
         # once counter is great than spliced text stop
         # for text inside ciphertext
-        while counter < spliced_text_size:
-            for txt in ciphertext:
-                cleartext += ciphertext[position]
+        while counter_self_size < self.size:
+            while counter_spliced_text_size < spliced_text_size:
+                final_char = ciphertext[position]
+                cleartext += final_char
                 print(position)
                 position += 3
-            counter += 1
+                counter_spliced_text_size += 1
+
+            counter_self_size += 1
+
+
 
         return cleartext
 
