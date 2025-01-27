@@ -1,38 +1,35 @@
 import cipher
 
-scheme_file = open('scheme.txt', 'r')
 
-'''
-def test_cipher():
-    counter = 0
-    lines = scheme_file.readlines[0:counter]
-    print(lines)
-    for line in lines:
-        print(line)
-        counter += 1
-'''
+# **************************************************************************
 
 
+def test_ciphers(ciphertext):
+    print('')
+    print('------------------------')
+    print('Atbash: ' + cipher.Atbash().decode(ciphertext))
 
 
+# **************************************************************************
 
 
-for idx, ciphertext in enumerate(scheme_file):
-    ciphertext = ciphertext.strip()
-    first_line = scheme_file.readline()
-    print(first_line)
+def decrpty_scheme():
+
+    scheme_file = open('scheme.txt', 'r')
+
+    for idx, ciphertext in enumerate(scheme_file):
+        ciphertext = ciphertext.strip()
+        print('line #' + str(idx) + ': ' + ciphertext)
+
+    scheme_file.close()
+
+# **************************************************************************
 
 
+print('---------------------------------------')
+decrpty_scheme()
 
 
-
-
-
-#test_cipher()
-
-scheme_file.close()
-
-
-
+# **************************************************************************
 
 
