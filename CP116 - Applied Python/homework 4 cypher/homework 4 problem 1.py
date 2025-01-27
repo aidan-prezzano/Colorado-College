@@ -167,19 +167,32 @@ class Weave(Cipher):
             counter += 1
 
 
-        first_portion = sliced_texts[:len(sliced_texts) // self.size]
-        print(first_portion)
-
-        second_portion = sliced_texts[spliced_text_size :spliced_text_size *2]
-        print(second_portion)
-
-
-
         return ciphertext
 
     def decode(self, ciphertext):
         # TODO: Implement decoding method for Weave Cipher
         cleartext = ""
+
+        spliced_text_size = math.ceil(len(cleartext) / self.size)
+
+        counter = 0
+        position = 0
+        # set counter = 0
+        # once counter is great than spliced text stop
+        # for text inside ciphertext
+        while counter < spliced_text_size:
+            for txt in ciphertext:
+                cleartext =+ ciphertext[position]
+                position += 3
+                print(cleartext)
+                print(txt)
+            counter += 1
+
+
+
+
+
+
         return cleartext
 
 
