@@ -200,5 +200,5 @@ print("Here is a sampling of ciphers to showcase the options.")
 
 # After you have finished implementing the Atbash, Caesar, and Weave ciphers this code will instantiate and
 # test a few of each to make sure they're working correctly. Inspect the output to verify for yourself!
-#for cipher in ciphers:
-#    cipher.run_test()
+for cipher in ciphers:
+    cipher.run_test()
