@@ -186,10 +186,12 @@ class Weave(Cipher):
                 final_char = ciphertext[position]
                 cleartext += final_char
                 print(position)
-                position += 3
+                position += self.size
                 counter_spliced_text_size += 1
 
             counter_self_size += 1
+            counter_spliced_text_size = 0
+            position = 0 + counter_self_size
 
 
 
