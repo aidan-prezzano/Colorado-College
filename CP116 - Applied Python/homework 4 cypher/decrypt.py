@@ -10,14 +10,14 @@ def test_ciphers(ciphertext):
     print('Atbash: ' + cipher.Atbash().decode(ciphertext))
     i = 0
     while i < 15:
-        print(f'index {i} : {cipher.Caesar(i).decode(ciphertext)}')
+        #print(f'index {i} : {cipher.Caesar(i).decode(ciphertext)}')
         i += 1
 
     j = 1
     while j < 15:
         if len(ciphertext) % j == 0:
             print(f'index {j} : {cipher.Weave(j).decode(ciphertext)}')
-            j += 1
+        j += 1
 
 
 # **************************************************************************
@@ -35,9 +35,9 @@ def decrpty_scheme():
         if idx == 1:
             print(cipher.Atbash().decode(ciphertext))
         if idx == 2:
-            test_ciphers(ciphertext)
+            print(cipher.Weave(3).decode(ciphertext))
         if idx == 3:
-           pass
+            print(cipher.Weave(6).decode(ciphertext))
         if idx == 4:
             print(cipher.Atbash().decode(ciphertext))
         if idx == 5:
