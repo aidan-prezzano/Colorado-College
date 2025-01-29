@@ -9,11 +9,12 @@ def youngest_olympian_to__receive_medal(df):
     youngest = df.loc[df['Age'].idxmin(), ['Name', 'Age', 'Sport', 'Year']]
     print(youngest)
 
-    athelete = 'Luigina Giavotti'
-    sport = 'Gymnastics'
-    year = 1928
+    athelete = youngest['Name']
+    sport = youngest['Sport']
+    year = youngest['Year']
+    age = youngest['Age']
 
-    print('Youngest olympian to receive a medal was ' + athelete + '. The medal was in ' + sport + ', in the year ' + str(year) + 'at 11 years old.')
+    print('Youngest olympian to receive a medal was ' + athelete + '. The medal was in ' + sport + ', in the year ' + str(year) + ' at '+ str(age))
 
 
 # **************************************************************************
