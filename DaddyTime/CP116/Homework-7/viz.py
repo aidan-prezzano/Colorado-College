@@ -11,13 +11,27 @@ def relationship_between_sport_and_age_in_olympics(df):
     print('Studying how age impacts an athletes ability to medal in ' + sport + '\n')
 
     # find all athletes for the sport
+    # group the athletes by age
     athletes_in_sport = df[(df['Sport'] == sport)]
     print('There have been ' + str(len(athletes_in_sport)) + ' athletes and who have won a medal in ' + sport)
-
-    # group the athletes by age
     athletes_by_age = athletes_in_sport.groupby(['Age']).size()
 
-    sns.lineplot(athletes_by_age)
+    # find all female athletes for the sport
+    # group the female athletes by age
+    female_athletes_in_sport = df[(df['Sport'] == sport) & (df['Sex'] == 'F')]
+    print('There have been ' + str(len(female_athletes_in_sport)) + ' female athletes and who have won a medal in ' + sport)
+    female_athletes_by_age = female_athletes_in_sport.groupby(['Age']).size()
+
+    # find all male athletes for the sport
+    # group the male athletes by age
+    male_athletes_in_sport = df[(df['Sport'] == sport) & (df['Sex'] == 'M')]
+    print('There have been ' + str(len(male_athletes_in_sport)) + ' male athletes and who have won a medal in ' + sport)
+    male_athletes_by_age = male_athletes_in_sport.groupby(['Age']).size()
+
+    #sns.lineplot(athletes_by_age)
+    sns.lineplot(female_athletes_by_age, color='pink', label='Female')
+    sns.lineplot(male_athletes_by_age, color='blue', label='Male')
+    plt.title('Medals by Age for ' + sport)
     plt.ylabel('# Medals')
     plt.show()
 
