@@ -1,6 +1,6 @@
-import matplotlib.pyplot as plt
 import pandas as pd
-
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # **************************************************************************
 
@@ -15,12 +15,11 @@ def relationship_between_sport_and_age_in_olympics(df):
     print('There have been ' + str(len(athletes_in_sport)) + ' athletes and who have won a medal in ' + sport)
 
     # group the athletes by age
-    nbr_athletes_by_age = athletes_in_sport.groupby(['Age']).size()
-    print(nbr_athletes_by_age)
+    athletes_by_age = athletes_in_sport.groupby(['Age']).size()
 
-    for xyz in enumerate(nbr_athletes_by_age):
-        print(xyz)
-
+    sns.lineplot(athletes_by_age)
+    plt.ylabel('# Medals')
+    plt.show()
 
 
 # **************************************************************************
