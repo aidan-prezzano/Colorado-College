@@ -41,8 +41,15 @@ def relationship_between_sport_and_age_in_olympics(df):
 
 def how_has_happiness_changed_past_15_years(df):
 
-    print('how_has_happiness_changed_past_15_years')
+    canada_rows = df[(df['Country'] == 'Canada')].tail(15)
+    us_rows = df[(df['Country'] == 'United States')].tail(15)
 
+    sns.lineplot(canada_rows, x=canada_rows['year'], y=canada_rows['Life Ladder'], color='green', label='Canada')
+    sns.lineplot(us_rows, x=us_rows['year'], y=us_rows['Life Ladder'], color='red', label='United States')
+    plt.title('Happiness by Country - Past 15 Years')
+    plt.xlabel('Year')
+    plt.ylabel('Happiness (Life Ladder)')
+    plt.show()
 
 # **************************************************************************
 
@@ -62,11 +69,11 @@ def run_viz():
 
     print('------------------------------------------------------------\n')
 
-    relationship_between_sport_and_age_in_olympics(df_olympic)
+    #relationship_between_sport_and_age_in_olympics(df_olympic)
 
     print('\n------------------------------------------------------------\n')
 
-    #how_has_happiness_changed_past_15_years(df_happiness)
+    how_has_happiness_changed_past_15_years(df_happiness)
 
     print('\n------------------------------------------------------------\n')
 
