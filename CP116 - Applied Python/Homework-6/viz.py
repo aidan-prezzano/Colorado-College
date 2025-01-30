@@ -6,18 +6,21 @@ import seaborn as sns
 
 
 def relationship_between_sport_and_age_in_olympics(df):
+    sport = 'Gymnastics'
 
     # only lines concerning gymnastics
-    gymnastic_contestants = df[df["Sport"] == 'Gymnastics']
+    gymnastic_contestants = df[df["Sport"] == sport]
 
+    # find medal winners of gymnastics
     gymnastic_age = gymnastic_contestants.groupby('Age').size()
     print(gymnastic_age)
 
-    for xyz in enumerate(gymnastic_age):
-        print(xyz)
-    # find medal winners of gymnastics
-    # find mean age of medal winners, if type -- no duplicate people
+
+    # plot the data by age
     sns.lineplot(gymnastic_age)
+    plt.title("The Medals per age")
+    plt.ylabel('# Medals')
+    print('https://www.data-to-viz.com/#line')
     plt.show()
 
 
