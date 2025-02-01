@@ -72,6 +72,20 @@ def how_has_happiness_changed_past_15_years(df):
 
 def relationship_between_wealth_generosity_and_happiness(df):
 
+    # see what the life ladder score is as generosity goes up
+    #generosity_sorted = df.sort_values(by='Generosity', ascending=False)
+
+    generosity_rows_happiness = df[['Generosity', 'Life Ladder']].sort_values(by='Generosity', ascending=False)
+
+    print(generosity_rows_happiness)
+    #wealth_rows = df['Log GDP per capita']
+
+
+    #generosity_rows_happiness = generosity_rows['Life Ladder']
+    # see what the life ladder score is when wealth goes up
+    # maybe see when the two of them combined goes up
+
+
 
     print('relationship_between_wealth_generosity_and_happiness')
 
@@ -86,16 +100,17 @@ def run_viz():
 
     print('------------------------------------------------------------\n')
 
-    relationship_between_sport_and_age_in_olympics(df_olympic)
+
+    #relationship_between_sport_and_age_in_olympics(df_olympic)
 
     print('\n------------------------------------------------------------\n')
 
-    how_has_happiness_changed_past_15_years(df_happiness)
+    #how_has_happiness_changed_past_15_years(df_happiness)
 
 
     print('\n------------------------------------------------------------\n')
 
-    #relationship_between_wealth_generosity_and_happiness(df_happiness)
+    relationship_between_wealth_generosity_and_happiness(df_happiness)
 
     #print('\n------------------------------------------------------------')
 
