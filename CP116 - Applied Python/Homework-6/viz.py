@@ -85,7 +85,9 @@ def relationship_between_wealth_generosity_and_happiness(df):
     #wealth_rows = df['Log GDP per capita']
 
     #plotting data
-    sns.heatmap(generosity_rows, x=generosity_rows['Generosity'], y=generosity_rows['Life Ladder'], color='green', label='Generosity')
+    sns.lineplot(generosity_rows, x=generosity_rows['Generosity'], y=generosity_rows['Life Ladder'], color='green', label='Generosity')
+    sns.lineplot(wealth_rows, x=wealth_rows['Log GDP per capita'], y=wealth_rows['Life Ladder'], color='red', label='Log GDP per capita')
+
     plt.show()
     #generosity_rows_happiness = generosity_rows['Life Ladder']
     # see what the life ladder score is when wealth goes up
