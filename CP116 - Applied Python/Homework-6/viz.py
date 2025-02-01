@@ -75,14 +75,18 @@ def relationship_between_wealth_generosity_and_happiness(df):
     # see what the life ladder score is as generosity goes up
     #generosity_sorted = df.sort_values(by='Generosity', ascending=False)
 
-    generosity_rows_happiness = df[['Generosity', 'Life Ladder']].sort_values(by='Generosity', ascending=False).dropna(subset=['Generosity'])
+    generosity_rows = df[['Generosity', 'Life Ladder']].sort_values(by='Generosity', ascending=False).dropna(subset=['Generosity'])
+    wealth_rows = df[['Log GDP per capita', 'Life Ladder']].sort_values(by='Log GDP per capita', ascending=False).dropna(subset=['Log GDP per capita'])
 
 
 
-    print(generosity_rows_happiness)
+    print(generosity_rows)
+    print(wealth_rows)
     #wealth_rows = df['Log GDP per capita']
 
-
+    #plotting data
+    sns.heatmap(generosity_rows, x=generosity_rows['Generosity'], y=generosity_rows['Life Ladder'], color='green', label='Generosity')
+    plt.show()
     #generosity_rows_happiness = generosity_rows['Life Ladder']
     # see what the life ladder score is when wealth goes up
     # maybe see when the two of them combined goes up
