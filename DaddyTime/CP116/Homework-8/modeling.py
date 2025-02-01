@@ -63,9 +63,11 @@ def run_modeling():
     df = pd.read_csv('happiness.csv')
     df.dropna(inplace=True)
 
+    # define the target (Life Ladder) and its inputs, which is all columns BUT country, year, and the target - Life Ladded
     Y = df['Life Ladder']
     X = df.drop(columns=['Country', 'year', 'Life Ladder'])
 
+    # split the data into training and test data
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=TRAIN_TEST_SPLIT_TEST_SIZE, random_state=TRAIN_TEST_SPLIT_RANDOM_STATE)
 
     # test three different models
