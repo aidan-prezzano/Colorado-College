@@ -1,9 +1,20 @@
 import pandas as pd  # For data manipulation
 from sklearn.model_selection import train_test_split  # For splitting data
 from sklearn.linear_model import LinearRegression  # Model 1: Linear Regression
-from sklearn.tree import DecisionTreeRegressor  # Model 2: Decision Tree
-from sklearn.ensemble import RandomForestRegressor  # Model 3: Random Forest
-from sklearn.metrics import r2_score, mean_absolute_error  # For evaluating model performance
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.svm import SVR
+
+
+# **************************************************************************
+
+
+# https://www.simplilearn.com/tutorials/scikit-learn-tutorial/sklearn-regression-models
+#
+# Linear Regression: https://en.wikipedia.org/wiki/Linear_regression
+#
+# Gradient Boosting: https://en.wikipedia.org/wiki/Gradient_boosting
+#
+# Support Vector Machine: https://en.wikipedia.org/wiki/Support_vector_machine
 
 
 # **************************************************************************
@@ -16,26 +27,32 @@ TRAIN_TEST_SPLIT_RANDOM_STATE = 42
 # **************************************************************************
 
 
-def linear_regression(df):
-
-    Y = df['Life Ladder']
-    X = df.drop(columns=['Country', 'Life Ladder'])
-
-    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=TRAIN_TEST_SPLIT_TEST_SIZE, random_state=TRAIN_TEST_SPLIT_RANDOM_STATE)
-
-    linear_model = LinearRegression()
-    linear_model.fit(X_train, Y_train)
-    score = linear_model.score(X_train, Y_train)
-
+def linear_regression(X_train, X_test, Y_train, Y_test):
+    model = LinearRegression()
+    model.fit(X_train, Y_train)
+    score = model.score(X_test, Y_test)
     print('Linear Regression Score: ' + str(score))
+
 
 # **************************************************************************
 
 
-def xyz_model(df):
+def gradient_boosting_regressor(X_train, X_test, Y_train, Y_test):
+    model = GradientBoostingRegressor()
+    model.fit(X_train, Y_train)
+    score = model.score(X_test, Y_test)
+    print('Gradient Boosting Regressor Score: ' + str(score))
 
-    Y = df['Life Ladder']
-    X = df.drop(columns=['Country', 'Life Ladder'])
+
+# **************************************************************************
+
+
+def support_vector_machine(X_train, X_test, Y_train, Y_test):
+    model = SVR()
+    model.fit(X_train, Y_train)
+    score = model.score(X_test, Y_test)
+    print('Support Vector Machine Score: ' + str(score))
+
 
 # **************************************************************************
 
@@ -46,7 +63,15 @@ def run_modeling():
     df = pd.read_csv('happiness.csv')
     df.dropna(inplace=True)
 
-    linear_regression(df)
+    Y = df['Life Ladder']
+    X = df.drop(columns=['Country', 'year', 'Life Ladder'])
+
+    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=TRAIN_TEST_SPLIT_TEST_SIZE, random_state=TRAIN_TEST_SPLIT_RANDOM_STATE)
+
+    # test three different models
+    linear_regression(X_train, X_test, Y_train, Y_test)
+    gradient_boosting_regressor(X_train, X_test, Y_train, Y_test)
+    support_vector_machine(X_train, X_test, Y_train, Y_test)
 
 
 # **************************************************************************
