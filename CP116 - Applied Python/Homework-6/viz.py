@@ -72,31 +72,24 @@ def how_has_happiness_changed_past_15_years(df):
 
 def relationship_between_wealth_generosity_and_happiness(df):
 
-    # see what the life ladder score is as generosity goes up
-    #generosity_sorted = df.sort_values(by='Generosity', ascending=False)
-
+    # get each row of generosity and wealth and compare and sort the data from highest to lowest
     generosity_rows = df[['Generosity', 'Life Ladder']].sort_values(by='Generosity', ascending=False).dropna(subset=['Generosity'])
     wealth_rows = df[['Log GDP per capita', 'Life Ladder']].sort_values(by='Log GDP per capita', ascending=False).dropna(subset=['Log GDP per capita'])
 
-
-
-    print(generosity_rows)
-    print(wealth_rows)
-    #wealth_rows = df['Log GDP per capita']
-
     #plotting data
-    sns.lineplot(generosity_rows, x=generosity_rows['Generosity'], y=generosity_rows['Life Ladder'], color='green', label='Generosity')
+    # line_kws=dict shows colored line of reg
+    sns.regplot(generosity_rows, x=generosity_rows['Generosity'], y=generosity_rows['Life Ladder'], color='green', label="Generosity's Impact on Happiness",line_kws=dict(color="b"),)
     plt.show()
-    sns.lineplot(wealth_rows, x=wealth_rows['Log GDP per capita'], y=wealth_rows['Life Ladder'], color='red', label='Log GDP per capita')
+    sns.regplot(wealth_rows, x=wealth_rows['Log GDP per capita'], y=wealth_rows['Life Ladder'], color='red', label="Log GDP per capita, Impact on Happiness",line_kws=dict(color="b"))
     plt.show()
-    #generosity_rows_happiness = generosity_rows['Life Ladder']
-    # see what the life ladder score is when wealth goes up
-    # maybe see when the two of them combined goes up
 
-
-
-    print('relationship_between_wealth_generosity_and_happiness')
-
+    # I choose a regplot because I thought it would more accuratly show the data rather than a line plot because of its ability to show a line of regressioin. I made the color different as well
+    # so the line of best fit could be easily identified. I choose accurate labels and titles to make sure the user knows what is going on in the graph. At first when I used a line graph it didn't
+    # seem like Generosity had any impact on the Country's state of happiness. However when I plugged in the line of best fit it made it clear that although not much, there was some positive
+    # correlation of generosity and happiness. I think this was due to the fact that some countries only had a little bit of generosity, like around .1 - .4 but also yeilded a ton of happiness,
+    # showing that somtimes only a little bit of generosity is needed to produce high scores of happiness. on the other hand, wealth had a greater impact on overall happiness of a country.
+    # The larger the Wealth in a country had a pretty strong correlation to the happiness as the line of best fit shows. When a country had a wealth of 11 there were few insances of a happiness
+    # score below 5 which I thought was interesting.
 
 # **************************************************************************
 

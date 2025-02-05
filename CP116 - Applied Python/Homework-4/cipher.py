@@ -143,8 +143,6 @@ class Weave(Cipher):
         # as ex: if cleartext length = 48, while # splices = 3 ...  splice size = 16 (16x3=48)
         # as ex: if cleartext length = 40, while # splices = 3 ...  splice size = 14 (14x3=42)
         spliced_text_size = math.ceil(len(cleartext) / self.size)
-        print(spliced_text_size)
-
 
         sliced_texts = [
             cleartext[i * spliced_text_size:(i + 1) * spliced_text_size]
@@ -202,9 +200,6 @@ ciphers = [
     Weave(3)
 ]
 
-ciphers = [
-    Caesar(3)
-]
 
 print("This program implements several different ciphers that can be used to encode/decode text.")
 print("Here is a sampling of ciphers to showcase the options.")
