@@ -2,7 +2,8 @@ import re
 import pandas as pd  # For data manipulation
 from sklearn.linear_model import LinearRegression  # Model 1: Linear Regression
 from matplotlib import pyplot as plt
-
+import nltk
+from nltk.tokenize import sent_tokenize, word_tokenize
 
 # **************************************************************************
 
@@ -62,8 +63,8 @@ def nbr_non_alpha_numeric_characters(text):
 
 # **************************************************************************
 
-
 def run_readability():
+
 
     # open the CSV file, then drop any columns where 'Pub Year' does not exist
     df = pd.read_csv('readability_corpus.csv')
