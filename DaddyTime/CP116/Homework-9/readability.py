@@ -1,6 +1,8 @@
 import re
 import pandas as pd  # For data manipulation
 from sklearn.linear_model import LinearRegression  # Model 1: Linear Regression
+from sklearn.ensemble import GradientBoostingRegressor
+
 from matplotlib import pyplot as plt
 
 
@@ -85,10 +87,10 @@ def run_readability():
     X_test = test_df[['Pub Year', 'avg_length_per_word', 'avg_length_of_longest_ten_words', 'avg_nbr_vowels_per_word', 'nbr_non_alpha_numeric_characters']]
 
     # fit the model with the training data, then score it with the test data
-    model = LinearRegression()
+    model = GradientBoostingRegressor()
     model.fit(X_train, Y_train)
     score = model.score(X_test, Y_test)
-    print('Model Coefficients : ', model.coef_)
+    #print('Model Coefficients : ', model.coef_)
     print('Model Score: ' + str(score))
 
     # create predictions on test data
