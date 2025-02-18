@@ -2,12 +2,6 @@ public class Chattybot {
 
     // ------------------------------------------------------------------------------------------------
 
-    public static boolean TEST_MODE = false;
-    public static String TEST_MODE_INITIAL_BALANCE = "$1000.0";
-    public static String TEST_MODE_ANNUAL_INTEREST = "6.0%";
-
-    // ------------------------------------------------------------------------------------------------
-
     // simply say hello
     public static void sayHello() {
         System.out.println("Hello there. Nice to meet you.");
