@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class Dollar {
+public class OtherDollar {
 
     public static boolean TEST_MODE = true;
     public static String TEST_DOLLAR = "32.99";

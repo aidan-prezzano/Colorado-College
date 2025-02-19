@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class VolumeCarton {
+public class OtherVolumeCarton {
 
     public static boolean TEST_MODE = true;
     public static int TEST_MODE_LENGTH = 2;

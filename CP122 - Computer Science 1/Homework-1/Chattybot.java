@@ -37,7 +37,7 @@ public class Chattybot{
             System.out.print("Would you like a hint? Press Y for yes and N for no: ");
             String hint_choice = scan.nextLine();
             if (hint_choice.equals("Y")){
-                System.out.print();
+                System.out.print("");
 
             }
         }
